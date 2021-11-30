@@ -15,7 +15,9 @@ class ProbetaController extends Controller
      */
     public function index()
     {
-        $probetas = Probeta::all();
+        //$probetas = Probeta::where('codigo','like','EC%')->select('codigo','fechavaciado','fecharotura','fc','densidad','estado','aprobado','subcodigo');
+        $probetas = Probeta::where('codigo','like','EC%')->select('codigo','fechavaciado','fecharotura','fc','densidad','estado','aprobado','subcodigo');
+        $probetas = $probetas->get();
         return response()->json($probetas, 200);
     }
 
