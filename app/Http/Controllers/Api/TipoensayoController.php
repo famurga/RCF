@@ -24,7 +24,8 @@ class TipoensayoController extends Controller
             ['fechaentrega','like','%2021'],
             ['codigo','like','EC%'],
         ])->select('codigo','fechaentrega','estado','urgente')->orderBy('codigo');
-         $ensayo = $ensayo->paginate(15);
+         //$ensayo = $ensayo->paginate(30);
+         $ensayo = $ensayo->get();
          return response()->json($ensayo, 200);
 
     }

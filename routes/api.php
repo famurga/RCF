@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\ProbetaController;
 use App\Http\Controllers\Api\TipoensayoController;
 use Illuminate\Http\Request;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('login',[LoginController::class,'store']);
+
 
 /* Route::get('probetas', [ProbetaController::class,'index'])->name('api.probetas'); */
 
