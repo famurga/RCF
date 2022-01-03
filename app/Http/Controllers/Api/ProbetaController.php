@@ -21,6 +21,23 @@ class ProbetaController extends Controller
         return response()->json($probetas, 200);
     }
 
+    public function busquedaSubcodigo($idtipoensayo)
+    {
+       
+        //$probetas = Probeta::where('codigo','like','EC%')->select('codigo','fechavaciado','fecharotura','fc','densidad','estado','aprobado','subcodigo');
+        $idprobeta = Probeta::where('idtipoensayo','=',$idtipoensayo)->select('fechavaciado','fc','densidad','estado','aprobado','subcodigo');
+        $idprobeta = $idprobeta->get();
+        //$probetas = $probetas->get(1);
+        return response()->json($idprobeta, 200);  
+
+       
+
+        
+        
+        
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -41,6 +41,8 @@ class TipoensayoController extends Controller
         //
     }
 
+
+
     /**
      * Display the specified resource.
      *
@@ -49,7 +51,7 @@ class TipoensayoController extends Controller
      */
     public function show(Tipoensayo $tipoensayo)
     {
-        //
+        
     }
 
     /**

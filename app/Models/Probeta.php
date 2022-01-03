@@ -9,4 +9,5 @@ class Probeta extends Model
 {
     use HasFactory;
     protected $table = 'probeta';
+    protected $primaryKey = 'idtipoensayo';
 }
