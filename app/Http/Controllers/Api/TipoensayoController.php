@@ -21,7 +21,7 @@ class TipoensayoController extends Controller
          
          
          $ensayo = Tipoensayo::where([
-            ['fechaentrega','like','%2021'],
+            ['fechaentrega','like','%2022'],
             ['codigo','like','EC%'],
         ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
          //$ensayo = $ensayo->paginate(30);
