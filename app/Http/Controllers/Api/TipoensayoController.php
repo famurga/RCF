@@ -29,6 +29,40 @@ class TipoensayoController extends Controller
          return response()->json($ensayo, 200);
 
     }
+    public function Pendientes()
+    {
+         //$probetas = Probeta::where('codigo','like','EC%')->select('codigo','fechavaciado','fecharotura','fc','densidad','estado','aprobado','subcodigo');
+         //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
+         //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
+         
+         
+         $ensayo = Tipoensayo::where([
+            ['fechaentrega','like','%2022'],
+            ['codigo','like','EC%'],
+            ['estado', '=','sin revisar'],
+        ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
+         //$ensayo = $ensayo->paginate(30);
+         $ensayo = $ensayo->get();
+         return response()->json($ensayo, 200);
+
+    }
+    public function Terminados()
+    {
+         //$probetas = Probeta::where('codigo','like','EC%')->select('codigo','fechavaciado','fecharotura','fc','densidad','estado','aprobado','subcodigo');
+         //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
+         //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
+         
+         
+         $ensayo = Tipoensayo::where([
+            ['fechaentrega','like','%2022'],
+            ['codigo','like','EC%'],
+            ['estado', '=','documento emitido'],
+        ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
+         //$ensayo = $ensayo->paginate(30);
+         $ensayo = $ensayo->get();
+         return response()->json($ensayo, 200);
+
+    }
 
     /**
      * Store a newly created resource in storage.

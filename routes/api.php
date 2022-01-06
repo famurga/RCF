@@ -28,5 +28,7 @@ Route::post('login',[LoginController::class,'store']);
 
 Route::apiResource('probetas', ProbetaController::class)->names('api.probetas');
 Route::get('probetasa/{idtipoensayo}', [ProbetaController::class,'busquedaSubcodigo']);
-Route::apiResource('tipoensayo', TipoensayoController::class)->names('api.tipoensayo');  
+Route::apiResource('tipoensayo', TipoensayoController::class)->names('api.tipoensayo');
+Route::get('tipoensayopend', [TipoensayoController::class,'Pendientes']);
+Route::get('tipoensayoterm', [TipoensayoController::class,'Terminados']);  
 
