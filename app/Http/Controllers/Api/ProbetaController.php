@@ -46,7 +46,22 @@ class ProbetaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+    }
+
+    public function insertarRegistro(Request $request){
+       /*  $request->validate([
+            'name' => 'required',
+            'code' => 'required | size:4 | unique:products',
+            'descripcion' => 'required',   
+        ]); */
+
+        $probeta=Probeta::create([
+            'diametro_superior_1' => $request->name,
+            'diametro_inferior_1' => $request->code,
+        ]);
+
+        return response()->json($probeta, 200);
     }
 
     /**
@@ -67,9 +82,26 @@ class ProbetaController extends Controller
      * @param  \App\Models\Probeta  $probeta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Probeta $probeta)
+    public function updateRegistro(Request $request,$idtipoensayo,$subcodigo)
     {
-        //
+
+        //$prob=Probeta::where('idtipoensayo','=',$idtipoensayo)->select('fechavaciado','fc','densidad','estado','aprobado','subcodigo');
+        $probeta = Probeta::where([
+            ['idtipoensayo','=',$idtipoensayo],
+            ['subcodigo','=',$subcodigo],
+        ])->first();
+        //$probeta = Probeta::where('codigo','like','EC%')->select('codigo','fechavaciado','fecharotura','fc','densidad','estado','aprobado','subcodigo');
+        //$probeta = $probeta->get();
+        
+
+
+        $probeta->diametro_superior_1= $request->diametro_superior_1;
+        $probeta->diametro_inferior_1= $request->diametro_inferior_1;
+        
+
+        $probeta->save();
+   
+        return response()->json($probeta, 200);
     }
 
     /**

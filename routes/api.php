@@ -30,5 +30,6 @@ Route::apiResource('probetas', ProbetaController::class)->names('api.probetas');
 Route::get('probetasa/{idtipoensayo}', [ProbetaController::class,'busquedaSubcodigo']);
 Route::apiResource('tipoensayo', TipoensayoController::class)->names('api.tipoensayo');
 Route::get('tipoensayopend', [TipoensayoController::class,'Pendientes']);
-Route::get('tipoensayoterm', [TipoensayoController::class,'Terminados']);  
+Route::get('tipoensayoterm', [TipoensayoController::class,'Terminados']);
+Route::put('probetasa/{idtipoensayo}/{subcodigo}', [ProbetaController::class,'updateRegistro']);  
 

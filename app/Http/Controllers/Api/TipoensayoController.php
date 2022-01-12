@@ -35,12 +35,14 @@ class TipoensayoController extends Controller
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          
-         
-         $ensayo = Tipoensayo::where([
+         $ensayo = Tipoensayo::where('fechaentrega','like','%2022')->where('codigo','like','EC%')->where('estado', '=','con muestra')->orWhere('estado', '=','sin muestra')
+         ->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
+         /* $ensayo = Tipoensayo::where([
             ['fechaentrega','like','%2022'],
             ['codigo','like','EC%'],
-            ['estado', '=','sin revisar'],
-        ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
+            ['estado', '=','con muestra'],
+            //['estado', '=','sin muestra'],
+        ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo'); */
          //$ensayo = $ensayo->paginate(30);
          $ensayo = $ensayo->get();
          return response()->json($ensayo, 200);
