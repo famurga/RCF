@@ -55,7 +55,7 @@ class TipoensayoController extends Controller
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          
-         $ensayo = Tipoensayo::where('fechaentrega','like','%2022')->where('codigo','like','EC%')->where('estado', '=','documento entregado')->orWhere('estado', '=','documento emitido')
+         $ensayo = Tipoensayo::where('fechaentrega','like','%2022')->orWhere('codigo','like','EC%')->orWhere('estado', '=','documento entregado')->orWhere('estado', '=','documento emitido')
          /* $ensayo = Tipoensayo::where([
             ['fechaentrega','like','%2022'],
             ['codigo','like','EC%'],
