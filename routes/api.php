@@ -39,5 +39,8 @@ Route::put('probetasa/{idtipoensayo}/{subcodigo}', [ProbetaController::class,'up
 
 //Equipos
 Route::get('indexVernier', [EquipoController::class,'indexVernier']);
+Route::get('indexBalanza', [EquipoController::class,'indexBalanza']);
+Route::get('indexPrensa', [EquipoController::class,'indexPrensa']);
+Route::get('indexAlmohadilla', [EquipoController::class,'indexAlmohadilla']);
 
 

@@ -25,6 +25,29 @@ class EquipoController extends Controller
          return response()->json($equipo, 200);
     }
 
+    public function indexBalanza()
+    {
+        $equipo=Equipo::where('item','like','BALA%')->orWhere('item', 'like','Bala%')
+         ->select('item','codigo','iditem');
+         $equipo = $equipo->get();
+         return response()->json($equipo, 200);
+    }
+    public function indexPrensa()
+    {
+        $equipo=Equipo::where('item','like','PREN%')->orWhere('item', 'like','pren%')
+         ->select('item','codigo','iditem');
+         $equipo = $equipo->get();
+         return response()->json($equipo, 200);
+    }
+
+    public function indexAlmohadilla()
+    {
+        $equipo=Equipo::where('item','like','ALMO%')->orWhere('item', 'like','almo%')
+         ->select('item','codigo','iditem');
+         $equipo = $equipo->get();
+         return response()->json($equipo, 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
