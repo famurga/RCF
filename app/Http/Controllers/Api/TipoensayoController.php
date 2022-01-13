@@ -19,11 +19,12 @@ class TipoensayoController extends Controller
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          
-         
+         //$ensayo = Tipoensayo::where('fechaentrega','like','%2022')->where('codigo','like','EC%')->where('estado', '=','con muestra')->orWhere('estado', '=','sin muestra')
          $ensayo = Tipoensayo::where([
             ['fechaentrega','like','%2022'],
             ['codigo','like','EC%'],
-        ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
+        ])
+        ->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
          //$ensayo = $ensayo->paginate(30);
          $ensayo = $ensayo->get();
          return response()->json($ensayo, 200);
@@ -54,12 +55,14 @@ class TipoensayoController extends Controller
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          //$ensayo = Tipoensayo::where('fechaentrega','like','%2021')->select('codigo','fechaentrega','estado','urgente');
          
-         
-         $ensayo = Tipoensayo::where([
+         $ensayo = Tipoensayo::where('fechaentrega','like','%2022')->where('codigo','like','EC%')->where('estado', '=','documento entregado')->orWhere('estado', '=','documento emitido')
+         /* $ensayo = Tipoensayo::where([
             ['fechaentrega','like','%2022'],
             ['codigo','like','EC%'],
             ['estado', '=','documento emitido'],
-        ])->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
+        ]) */
+        
+        ->select('codigo','fechaentrega','estado','urgente','idtipoensayo')->orderBy('codigo');
          //$ensayo = $ensayo->paginate(30);
          $ensayo = $ensayo->get();
          return response()->json($ensayo, 200);
