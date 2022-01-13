@@ -29,13 +29,7 @@ class ProbetaController extends Controller
         $idprobeta = $idprobeta->get();
         //$probetas = $probetas->get(1);
         return response()->json($idprobeta, 200);  
-
-       
-
-        
-        
-        
-        
+  
     }
 
     /**

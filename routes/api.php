@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\EquipoController;
 use App\Http\Controllers\Api\ProbetaController;
 use App\Http\Controllers\Api\TipoensayoController;
+use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +34,10 @@ Route::apiResource('tipoensayo', TipoensayoController::class)->names('api.tipoen
 Route::get('tipoensayopend', [TipoensayoController::class,'Pendientes']);
 Route::get('tipoensayoterm', [TipoensayoController::class,'Terminados']);
 Route::put('probetasa/{idtipoensayo}/{subcodigo}', [ProbetaController::class,'updateRegistro']);  
+
+
+
+//Equipos
+Route::get('indexVernier', [EquipoController::class,'indexVernier']);
+
 
